@@ -3,9 +3,10 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  // template: `<h1>Hello from Angular! Testing build time</h1>
+  //   <p>This is using multi line</p> `,
+  styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('newapp');
