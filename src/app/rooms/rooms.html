@@ -1,1 +1,38 @@
-<p>rooms works!</p>
+<h1>Welcome to {{hotelName}}</h1>
+<button (click)="toggle()">{{hideRooms ? "Show" : "Hide"}} Rooms</button>
+<div [hidden]="hideRooms">
+    Number of rooms available:<span [innerText]="rooms.availableRooms"></span>
+</div>
+
+
+@if (rooms.availableRooms > 0 && !hideRooms) {
+<div>
+    Room List
+    <table>
+        <tr>
+            <th>Even|Odd</th>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Amenities</th>
+            <th>Price</th>
+            <th>Checkin Time</th>
+            <th>Checkout Time</th>
+        </tr>
+        @for (room of roomlist; track room; let e = $even) {
+        <tr [class.even]="e" [class.odd]="!e">
+            <td>{{e ? "Even" : "Odd"}}</td>
+            <td>{{room.roomNumber}}</td>
+            <td>{{room.roomType}}</td>
+            <td>{{room.amenities}}</td>
+            <td>{{room.price}}</td>
+            <td>{{room.checkinTime}}</td>
+            <td>{{room.checkoutTime}}</td>
+        </tr>
+        }
+    </table>
+
+</div>
+}
+@else {
+<div>There is no available rooms</div>
+}
