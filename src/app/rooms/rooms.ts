@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { IRoom } from './IRooms';
 import { IRoomList } from './IRoomList';
+import { DatePipe, CurrencyPipe, TitleCasePipe, SlicePipe } from '@angular/common';
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.html',
   styleUrl: './rooms.scss',
-  imports: [],
+  imports: [DatePipe, TitleCasePipe, CurrencyPipe, SlicePipe],
 })
 export class Rooms {
   hotelName: string = 'Hilton';
