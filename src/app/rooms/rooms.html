@@ -5,7 +5,12 @@
 </div>
 
 
-@if (rooms.availableRooms > 0 && !hideRooms) {
+
+@if (hideRooms) {
+<div>Rooms are hidden</div>
+}
+@else{ 
+@if (rooms.availableRooms > 0) {
 <div>
     Room List
     <table class="table table-bordered table-striped">
@@ -18,7 +23,7 @@
             <th>Checkin Time</th>
             <th>Checkout Time</th>
         </tr>
-        @for (room of roomlist | slice :0:2 ; track room; let e = $even) {
+        @for (room of roomsList | slice :0:2 ; track room; let e = $even) {
         <tr [class.even]="e" [class.odd]="!e">
             <td>{{e ? "Even" : "Odd"}}</td>
             <td>{{room.roomNumber}}</td>
@@ -36,4 +41,4 @@
 }
 @else {
 <div>There is no available rooms</div>
-}
+}}
